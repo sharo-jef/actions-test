@@ -1,62 +1,43 @@
-name: Bug Report
+name: Bug report
 description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
+title: "【Bug】"
+labels: ["bug"]
 assignees:
-  - octocat
+  - kanisan007
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
   - type: textarea
     id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: 内容
+      description: バグの内容を記載してください。
+      placeholder: バグの内容を記載してください。
     validations:
       required: true
   - type: dropdown
     id: version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: バージョン
+      multiple: true
+      description: バグを確認したバージョンを選択してください。
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - 1.19.3 (Recommended)
+        - 1.19.2
+        - 1.19.1
+        - '1.19'
     validations:
       required: true
   - type: dropdown
-    id: browsers
+    id: environment
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: バグを確認した環境を選択してください。
       multiple: true
       options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+        - Vanilla
+        - Forge
+        - Fabric
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: ログ
+      description: ログをコピペしてください。
+      # render: shell
