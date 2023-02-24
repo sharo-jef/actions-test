@@ -13,6 +13,10 @@ on:
         - minor
         - major
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   patch:
     runs-on: ubuntu-latest
@@ -45,11 +49,11 @@ jobs:
               }
             }
       - name: Create release file
-        run: zip -r SharoAhoOffline-${{ steps.bump-semver.outputs.new_version }}.zip ./*
+        run: zip -r Release-${{ steps.bump-semver.outputs.new_version }}.zip ./*
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.bump-semver.outputs.new_version }}
           body: ${{ steps.create_changelog.outputs.changelog }}
           files: |
-            SharoAhoOffline-${{ steps.bump-semver.outputs.new_version }}.zip
+            Release-${{ steps.bump-semver.outputs.new_version }}.zip
